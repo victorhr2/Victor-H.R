@@ -11,3 +11,4 @@
     <p>Esta es mi primera página web pública.</p>
 </body>
 </html>
+<link rel="stylesheet" href="styles.css">
