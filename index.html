@@ -1,50 +1,332 @@
-
-.btn:hover {
-            background-color: #2c974b;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional | GitHub Pages</title>
+    <link rel="preconnect" href="[suspicious link removed]">
+    <link rel="preconnect" href="[suspicious link removed]" crossorigin>
+    <link href="[suspicious link removed]" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --accent: #38bdf8;
+            --text-title: #f8fafc;
+            --text-body: #94a3b8;
+            --text-muted: #64748b;
         }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.7;
+            padding: 0;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 4rem 1rem 3rem 1rem;
+        }
+
+        .avatar-badge {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 2.2rem;
+            color: white;
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        header h1 {
+            color: var(--text-title);
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.8rem;
+        }
+
+        header h1 span {
+            background: linear-gradient(135deg, #a5b4fc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-body);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            font-weight: 300;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-title);
+            border: 1px solid var(--border-card);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Main Grid Layout */
+        .section-title {
+            color: var(--text-title);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-card), transparent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--text-title);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Tech Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: #a5b4fc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid var(--border);
-            color: #8b949e;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-card);
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Status Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 280px;
+            background-color: #1e293b;
+            color: #38bdf8;
+            text-align: center;
+            border-radius: 12px;
+            padding: 1rem;
+            position: fixed;
+            z-index: 1000;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🚀 Mi Primera Página en GitHub Pages</h1>
-        <p>Proyecto desplegado y verificado exitosamente</p>
-    </header>
+    <div class="container">
+        <!-- Hero Header -->
+        <header>
+            <div class="avatar-badge">⚡</div>
+            <h1>Hola, soy <span>Tu Nombre</span></h1>
+            <p>Desarrollador & Creador de Proyectos. Bienvenido a mi espacio oficial alojado en GitHub Pages.</p>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="mostrarVerificacion()">
+                    ✨ Probar Estado
+                </button>
+                <a href="#proyectos" class="btn btn-secondary">
+                    📂 Ver Proyectos
+                </a>
+            </div>
+        </header>
 
-    <main>
-        <section class="card">
-            <h2>📌 Bienvenido a mi sitio web</h2>
-            <p>Esta página fue creada como plantilla base para gestionar proyectos, publicar documentación y presentar código directamente desde GitHub.</p>
-            <button class="btn" onclick="verificarEstado()">Verificar Estado del Sitio</button>
-            <p id="mensaje" style="margin-top: 1rem; font-weight: bold; color: var(--primary);"></p>
-        </section>
+        <!-- Habilidades / Tecnologías -->
+        <h2 class="section-title">Ecosistema & Tecnologías</h2>
+        <div class="tags" style="margin-bottom: 2rem;">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Python 3</span>
+            <span class="tag">R & Data Science</span>
+            <span class="tag">PostgreSQL / SQL</span>
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">Git Workflows</span>
+        </div>
 
-        <section class="card">
-            <h2>🛠️ Próximos Pasos</h2>
-            <ul>
-                <li><strong>Personalizar contenido:</strong> Modifica el texto en el archivo <code>index.html</code>.</li>
-                <li><strong>Agregar nuevos estilos:</strong> Personaliza los colores en la sección <code>&lt;style&gt;</code>.</li>
-                <li><strong>Hacer Push:</strong> Sube tus cambios a la rama principal (<code>main</code>) para ver las actualizaciones en vivo.</li>
-            </ul>
-        </section>
-    </main>
+        <!-- Sección de Proyectos -->
+        <h2 class="section-title" id="proyectos">Proyectos Destacados</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>GitHub Pages Deployment</h3>
+                <p>Sitio web optimizado de alto rendimiento creado con estándares modernos de desarrollo web y CI/CD.</p>
+                <div class="tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS Grid</span>
+                    <span class="tag">GitHub</span>
+                </div>
+            </div>
 
-    <footer>
-        <p>© 2026 - Publicado con GitHub Pages</p>
-    </footer>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Análisis & Automatización</h3>
+                <p>Repositorios dedicados a la automatización de procesos, gestión de datos y guías de desarrollo.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">RStudio</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Git Workflow Best Practices</h3>
+                <p>Implementación de guías de desarrollo en equipo con Conventional Commits y Pull Requests automatizados.</p>
+                <div class="tags">
+                    <span class="tag">Gitflow</span>
+                    <span class="tag">Trunk-based</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Tu Nombre — Desplegado con 💜 en GitHub Pages</p>
+        </footer>
+    </div>
+
+    <!-- Notificación emergente -->
+    <div id="toast">✅ ¡El sitio con diseño elegante responde perfectamente!</div>
 
     <script>
-        function verificarEstado() {
-            const mensaje = document.getElementById('mensaje');
-            mensaje.innerText = "✅ ¡El sitio está funcionando correctamente en GitHub Pages!";
+        function mostrarVerificacion() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3500);
         }
     </script>
 </body>
