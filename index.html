@@ -3,308 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional | GitHub Pages</title>
+    <title>Ayudantía | Regulación de Mercado</title>
     <link rel="preconnect" href="[suspicious link removed]">
     <link rel="preconnect" href="[suspicious link removed]" crossorigin>
     <link href="[suspicious link removed]" rel="stylesheet">
-    
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: rgba(30, 41, 59, 0.7);
-            --border-card: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(99, 102, 241, 0.4);
-            --primary: #6366f1;
-            --primary-glow: rgba(99, 102, 241, 0.35);
-            --accent: #38bdf8;
+            --bg-body: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.75);
+            --bg-card-hover: rgba(51, 65, 85, 0.85);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(99, 102, 241, 0.4);
+            --primary: #38bdf8;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.25);
+            --docente: #f59e0b;
             --text-title: #f8fafc;
-            --text-body: #94a3b8;
-            --text-muted: #64748b;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-body);
             color: var(--text-body);
-            line-height: 1.7;
-            padding: 0;
+            line-height: 1.6;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 40%);
             background-attachment: fixed;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        /* Hero Section */
+        /* Encabezado */
         header {
-            text-align: center;
-            padding: 4rem 1rem 3rem 1rem;
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 1.5rem 2rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
         }
 
-        .avatar-badge {
-            width: 84px;
-            height: 84px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-            font-size: 2.2rem;
-            color: white;
-            box-shadow: 0 0 30px var(--primary-glow);
+            gap: 0.5rem;
+            background: rgba(99, 102, 241, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.35rem 0.85rem;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
         }
 
         header h1 {
             color: var(--text-title);
-            font-size: 2.8rem;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 0.8rem;
-        }
-
-        header h1 span {
-            background: linear-gradient(135deg, #a5b4fc, #38bdf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
         header p {
-            font-size: 1.2rem;
             color: var(--text-body);
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-            font-weight: 300;
+            font-size: 1.05rem;
+            max-width: 750px;
         }
 
-        .button-group {
+        /* Navegación */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 0 1.5rem;
+            overflow-x: auto;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 99px;
-            font-weight: 600;
-            font-size: 0.95rem;
+        .nav-link {
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.25s ease;
+            white-space: nowrap;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #4f46e5);
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 20px var(--primary-glow);
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+        .nav-link.docente-link {
+            color: var(--docente);
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-title);
-            border: 1px solid var(--border-card);
+        /* Contenedor Principal */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+            width: 100%;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.1);
-            transform: translateY(-2px);
+        .section-header {
+            margin-bottom: 1.25rem;
         }
 
-        /* Main Grid Layout */
-        .section-title {
+        .section-header h2 {
             color: var(--text-title);
             font-size: 1.5rem;
-            font-weight: 600;
-            margin: 3rem 0 1.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            font-weight: 700;
         }
 
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--border-card), transparent);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-card);
-            border-radius: 16px;
-            padding: 1.8rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-icon {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            color: var(--text-title);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-body);
-            margin-bottom: 1.2rem;
-        }
-
-        /* Tech Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: rgba(99, 102, 241, 0.1);
-            color: #a5b4fc;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border-card);
+        .section-header p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-top: 0.2rem;
         }
 
-        /* Status Toast */
-        #toast {
-            visibility: hidden;
-            min-width: 280px;
-            background-color: #1e293b;
-            color: #38bdf8;
-            text-align: center;
-            border-radius: 12px;
-            padding: 1rem;
-            position: fixed;
-            z-index: 1000;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 1px solid var(--primary);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        /* Visor de Documentos e Iframe */
+        .viewer-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .viewer-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-body);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s, visibility 0.3s;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 2px 10px var(--accent-glow);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--border);
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Sección Exclusiva del Ayudante */
+        .docente-section {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid var(--docente);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 4rem;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+        }
+
+        .docente-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--docente);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .docente-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .docente-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.2rem;
+        }
+
+        .docente-card h4 {
+            color: var(--text-title);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .docente-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .docente-card textarea {
+            width: 100%;
+            height: 90px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-body);
+            padding: 0.5rem;
+            font-size: 0.85rem;
+            resize: vertical;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Hero Header -->
-        <header>
-            <div class="avatar-badge">⚡</div>
-            <h1>Hola a todos Bienvenidos a esta pagina para preparar su parcial/rezago<h1>
-            <p>"esta pagina se creo en especial para ustedes, asi que quieranla".</p>
-            
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="mostrarVerificacion()">
-                    ✨ Probar Estado
-                </button>
-                <a href="#Pruebas" class="btn btn-secondary">
-                    ver pruebas 
-                </a>
-            </div>
-        </header>
-
-        <!-- Habilidades / Tecnologías -->
-        <h2 class="section-title">Ecosistema & Tecnologías</h2>
-        <div class="tags" style="margin-bottom: 2rem;">
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">Python 3</span>
-            <span class="tag">R & Data Science</span>
-            <span class="tag">PostgreSQL / SQL</span>
-            <span class="tag">HTML5 / CSS3</span>
-            <span class="tag">Git Workflows</span>
+    <header>
+        <div class="header-container">
+            <span class="badge">🏛️ Portal Académico</span>
+            <h1>Ayudantía: Regulación de Mercado</h1>
+            <p>Plataforma oficial con visualización directa de diaporamas (PPTX), evaluaciones interactivas y panel de gestión.</p>
         </div>
+    </header>
 
-        <!-- Sección de Proyectos -->
-        <h2 class="section-title" id="proyectos">Proyectos Destacados</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">🚀</div>
-                <h3>GitHub Pages Deployment</h3>
-                <p>Sitio web optimizado de alto rendimiento creado con estándares modernos de desarrollo web y CI/CD.</p>
-                <div class="tags">
-                    <span class="tag">HTML5</span>
-                    <span class="tag">CSS Grid</span>
-                    <span class="tag">GitHub</span>
+    <nav>
+        <div class="nav-container">
+            <a href="#pptx" class="nav-link active">PPTX de la Ayudantía</a>
+            <a href="#controles" class="nav-link">Pruebas / Controles</a>
+            <a href="#docente" class="nav-link docente-link">🔒 Panel del Ayudante</a>
+        </div>
+    </nav>
+
+    <main>
+        
+        <!-- SECCIÓN 1: PPTX INTERACTIVOS -->
+        <section id="pptx">
+            <div class="section-header">
+                <h2>📊 PPTX de la Ayudantía (Visualizador en Vivo)</h2>
+                <p>Selecciona la unidad para revisar las diapositivas directamente en pantalla.</p>
+            </div>
+
+            <div class="viewer-container">
+                <div class="viewer-tabs">
+                    <button class="tab-btn active" onclick="cargarPPT('seccion0', this)">Sección 0: Nivelación</button>
+                    <button class="tab-btn" onclick="cargarPPT('unidad1', this)">Unidad 1: La Firma</button>
+                    <button class="tab-btn" onclick="cargarPPT('unidad2', this)">Unidad 2: Externalidades</button>
+                    <button class="tab-btn" onclick="cargarPPT('unidad3', this)">Unidad 3: Cárteles & Libre Comp.</button>
+                </div>
+
+                <div class="iframe-wrapper">
+                    <iframe id="pptViewer" src="[suspicious link removed]" allowfullscreen></iframe>
                 </div>
             </div>
+        </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>© victorhr — Desplegado en GitHub Pages</p>
-        </footer>
-    </div>
+        <!-- SECCIÓN 2: CONTROLES INTERACTIVOS EMBEBIDOS -->
+        <section id="controles">
+            <div class="section-header">
+                <h2>📝 Controles y Evaluaciones Interactivas</h2>
+                <p>Visualiza y resuelve las evaluaciones directamente desde este visor web.</p>
+            </div>
 
-    <!-- Notificación emergente -->
-    <div id="toast"> ¡El sitio con diseño elegante responde perfectamente!</div>
+            <div class="viewer-container">
+                <div class="viewer-tabs">
+                    <button class="tab-btn active" onclick="cargarControl('control1.html', this)">Control N° 1</button>
+                    <button class="tab-btn" onclick="cargarControl('control2.html', this)">Control N° 2</button>
+                    <button class="tab-btn" onclick="cargarControl('control3.html', this)">Control N° 3 / Prueba General</button>
+                </div>
+
+                <div class="iframe-wrapper">
+                    <iframe id="controlViewer" src="control1.html"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: PANEL EXCLUSIVO DEL AYUDANTE / ZONA DOCENTE -->
+        <section id="docente" class="docente-section">
+            <span class="docente-badge">🔒 Panel del Ayudante (Uso Privado)</span>
+            <h2 style="color: var(--text-title); font-size: 1.4rem;">Pautas de Corrección, Notas y Rúbricas</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Espacio privado para el seguimiento del curso y criterios de corrección.</p>
+
+            <div class="docente-grid">
+                <div class="docente-card">
+                    <h4>📋 Pautas & Solucionarios</h4>
+                    <p>Acceso directo a las respuestas esperadas y criterios de desarrollo para cada evaluación.</p>
+                    <button class="tab-btn" onclick="alert('Pautas cargadas: Revisa la sección de controles para validar con la pauta.')">Ver Criterios de Corrección</button>
+                </div>
+
+                <div class="docente-card">
+                    <h4>📊 Rúbrica de Puntajes</h4>
+                    <p>Desglose de puntajes por ítem, fórmulas de ponderación y escalas de calificación.</p>
+                    <button class="tab-btn" onclick="alert('Escala de Notas: 60% exigencia para Nota 4.0')">Ver Escala Exigencia</button>
+                </div>
+
+                <div class="docente-card">
+                    <h4>📝 Mis Apuntes Docentes</h4>
+                    <p>Anotaciones privadas sobre consultas frecuentes o reforzamientos pendientes:</p>
+                    <textarea placeholder="Escribe aquí tus notas personales sobre las clases..."></textarea>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Ayudantía de Regulación de Mercado | Plataforma Académica</p>
+    </footer>
 
     <script>
-        function mostrarVerificacion() {
-            const toast = document.getElementById("toast");
-            toast.className = "show";
-            setTimeout(function(){ 
-                toast.className = toast.className.replace("show", ""); 
-            }, 3500);
+        const USUARIO_GITHUB = "TU_USUARIO"; // Reemplaza por tu usuario real de GitHub
+        const REPOSITORIO_GITHUB = "mi-pagina-web";
+
+        const presentaciones = {
+            seccion0: "presentacion_seccion0_nivelacion_y_fundamentos-v2.pptx",
+            unidad1: "presentacion_unidad1_la_firma_y_mercados-v2.pptx",
+            unidad2: "presentacion_unidad2_externalidades_y_monopolios-v2.pptx",
+            unidad3: "presentacion_unidad3_libre_competencia_y_carteles-v2.pptx"
+        };
+
+        function cargarPPT(id, btn) {
+            const btns = btn.parentElement.querySelectorAll('.tab-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const archivo = presentaciones[id];
+            const urlRaw = `https://${USUARIO_GITHUB}.github.io/${REPOSITORIO_GITHUB}/${archivo}`;
+            const urlViewer = `[suspicious link removed]{encodeURIComponent(urlRaw)}`;
+
+            document.getElementById('pptViewer').src = urlViewer;
+        }
+
+        function cargarControl(archivo, btn) {
+            const btns = btn.parentElement.querySelectorAll('.tab-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.getElementById('controlViewer').src = archivo;
         }
     </script>
 </body>
